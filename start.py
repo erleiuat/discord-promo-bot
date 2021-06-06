@@ -13,6 +13,7 @@ from datetime import datetime
 import time
 
 postTimes = {
+    '12:10': 'dc1@scumfiction.com',
     '01:24': 'dc1@scumfiction.com',
     '05:19': 'dc2@scumfiction.com',
     '09:21': 'dc1@scumfiction.com',
