@@ -13,7 +13,6 @@ from datetime import datetime
 import time
 
 postTimes = {
-    '12:10': 'dc1@scumfiction.com',
     '01:24': 'dc1@scumfiction.com',
     '05:19': 'dc2@scumfiction.com',
     '09:21': 'dc1@scumfiction.com',
@@ -30,15 +29,15 @@ post_channels = [
         'content': ' - I am going to spam now.'
     },
     {
-        'url': 'https://discord.com/channels/837074161389142066/851024060753903628',
+        'url': 'https://discord.com/channels/228656196247093248/486268880575266816',
         'description': 'Spamming dcSpam in channel eu.',
         'title': 'eu',
         'content': open('dcSpam.txt', 'r', newline='\r\n').read()
     },
     {
-        'url': 'https://discord.com/channels/837074161389142066/851024060753903628',
+        'url': 'https://discord.com/channels/228656196247093248/486269045298167830',
         'description': 'Spamming dcSpam in channel russia.',
-        'title': 'eu',
+        'title': 'russia',
         'content': open('dcSpam.txt', 'r', newline='\r\n').read()
     },
     {
@@ -66,8 +65,7 @@ def login(driver, email):
 
 
 def writeSpam(driver, content):
-    elem = driver.find_element_by_xpath(
-        '//*[@id="app-mount"]/div[2]/div/div[2]/div/div/div/div/div[2]/div[2]/main/form/div/div/div/div[1]/div/div[3]/div[2]')
+    elem = driver.find_element_by_class_name('slateTextArea-1Mkdgw')
     data = content
     elem.send_keys(data[::-1])
     elem.send_keys(Keys.RETURN)
@@ -77,12 +75,16 @@ def timeToSpam(user):
     print('Spamming as: ' + user)
     driver = webdriver.Firefox()
     login(driver, user)
+    time.sleep(5)
 
     for i in post_channels:
         print('Doing: ' + i['description'])
         time.sleep(1)
         driver.get(i['url'])
-        time.sleep(1)
+        time.sleep(10)
+        if "Discord" in driver.title:
+            login(driver, user)
+            time.sleep(5)
         if(not (i['title'] in driver.title)):
             print('UNABLE TO ACCESS CORRECT TEXTCHAT')
             time.sleep(5)
