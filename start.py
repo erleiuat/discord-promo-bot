@@ -6,11 +6,8 @@ dc2@scumfiction.com | ItIsYeKoala
 Pass: Tr5A@wPFtv
 """
 
-
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from datetime import datetime
 import time
+import requests
 
 postTimes = {
     '01:24': 'dc1@scumfiction.com',
@@ -49,60 +46,34 @@ post_channels = [
 ]
 
 
-def login(driver, email):
-    time.sleep(0.5)
-    driver.get('https://discord.com/login')
-    time.sleep(1)
-    if "Discord" in driver.title:
-        elem = driver.find_element_by_name("email")
-        elem.clear()
-        elem.send_keys(email)
-        elem = driver.find_element_by_name("password")
-        elem.clear()
-        elem.send_keys("Tr5A@wPFtv")
-        time.sleep(0.5)
-        elem.send_keys(Keys.RETURN)
+s = requests.Session()
 
+loginHeaders = {
+    "accept": "*/*",
+    "accept-language": "de",
+    "content-type": "application/json",
+    "sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"91\", \"Chromium\";v=\"91\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-fingerprint": "855066585407815690.Fs9bV-nTFBITCJ81aRajKUbCics",
+    "x-super-properties": "eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiQ2hyb21lIiwiZGV2aWNlIjoiIiwic3lzdGVtX2xvY2FsZSI6ImRlLUNIIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzkxLjAuNDQ3Mi4xMDYgU2FmYXJpLzUzNy4zNiIsImJyb3dzZXJfdmVyc2lvbiI6IjkxLjAuNDQ3Mi4xMDYiLCJvc192ZXJzaW9uIjoiMTAiLCJyZWZlcnJlciI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vIiwicmVmZXJyaW5nX2RvbWFpbiI6Ind3dy5nb29nbGUuY29tIiwic2VhcmNoX2VuZ2luZSI6Imdvb2dsZSIsInJlZmVycmVyX2N1cnJlbnQiOiIiLCJyZWZlcnJpbmdfZG9tYWluX2N1cnJlbnQiOiIiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfYnVpbGRfbnVtYmVyIjo4Nzc4MSwiY2xpZW50X2V2ZW50X3NvdXJjZSI6bnVsbH0=",
+    "cookie": "_fbp=fb.1.1615288328555.1927512170; __dcfduid=363a041375bd31546e412ef7924c1b56; rebrand_bucket=921da5ca5ff45c190cf7571ce8ecfc27; OptanonConsent=isIABGlobal=false&datestamp=Thu+Jun+17+2021+14%3A24%3A55+GMT%2B0200+(Mitteleurop%C3%A4ische+Sommerzeit)&version=6.17.0&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1&AwaitingReconsent=false; locale=de"
+}
 
-def writeSpam(driver, content):
-    elem = driver.find_element_by_class_name('slateTextArea-1Mkdgw')
-    data = content
-    elem.send_keys(data[::-1])
-    elem.send_keys(Keys.RETURN)
+login = s.post(
+    'https://discord.com/api/v9/auth/login',
+    allow_redirects=True,
+    headers=loginHeaders,
+    data={
+        "login": "dc2@scumfiction.com",
+        "password": "Tr5A@wPFtv",
+        "undelete": "false",
+        "captcha_key": "null",
+        "login_source": "null",
+        "gift_code_sku_id": "null"
+    }
+)
 
-
-def timeToSpam(user):
-    print('Spamming as: ' + user)
-    driver = webdriver.Firefox()
-    login(driver, user)
-    time.sleep(5)
-
-    for i in post_channels:
-        print('Doing: ' + i['description'])
-        time.sleep(1)
-        driver.get(i['url'])
-        time.sleep(10)
-        if "Discord" in driver.title:
-            login(driver, user)
-            time.sleep(5)
-        if(not (i['title'] in driver.title)):
-            print('UNABLE TO ACCESS CORRECT TEXTCHAT')
-            time.sleep(5)
-        else:
-            writeSpam(driver, i['content'])
-            time.sleep(5)
-
-    print('DONE Spamming as: ' + user)
-    time.sleep(185)
-    driver.close()
-    time.sleep(10)
-
-
-while(True):
-    now = datetime.now()
-    current_time = now.strftime("%H:%M")
-    print(current_time)
-    if(current_time in postTimes):
-        print(current_time + ': Posting-Time!')
-        timeToSpam(postTimes[current_time])
-    time.sleep(15)
+print(login.text)
