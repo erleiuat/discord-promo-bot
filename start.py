@@ -21,6 +21,8 @@ url2 = "https://discord.com/api/v9/channels/486269045298167830/messages"
 #url1 = "https://discord.com/api/v9/channels/857288688168599572/messages"
 #url2 = "https://discord.com/api/v9/channels/857288707728080946/messages"
 
+#Approvement-Channel:
+url3 = "https://discord.com/api/v9/channels/857320680336392223/messages"
 
 postTimes = {
     '04:38': 'dc2@scumfiction.com',
@@ -63,18 +65,36 @@ def sendMsg(emailAddr):
 
     data = json.loads(login.text)
     token = data['token']
+    theaders = {
+        'Authorization': token,
+        'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5',
+        'content-type': 'application/json'
+    }
 
+    tgData = json.dumps({
+        'content': 'I am going to do my work now.',
+        'nonce': '',
+        'tts': 'false'
+    }, separators=(',', ':'))
+
+    tellGo = s.post(
+        url3,
+        allow_redirects=True,
+        headers=theaders,
+        data=tgData
+    )
+
+
+
+    headers = {
+        'Authorization': token,
+        'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5',
+    }
     payload = {
         'content': open('dcSpam.txt', 'r', newline='\r\n').read(),
         'nonce': '',
         'tts': 'false'
     }
-
-    headers = {
-        'Authorization': token,
-        'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5'
-    }
-
     files1 = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
     files2 = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
     response1 = requests.request("POST", url1, headers=headers, data=payload, files=files1)
@@ -82,14 +102,12 @@ def sendMsg(emailAddr):
     print('SENT FIRST MSG AT: ' + json.loads(response1.text)['timestamp'])
     print('SENT SECOND MSG AT: ' + json.loads(response2.text)['timestamp'])
 
+
+
     logout = s.post(
         'https://discord.com/api/v9/auth/logout',
         allow_redirects=True,
-        headers={
-            'Authorization': token,
-            'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5',
-            'content-type': 'application/json'
-        },
+        headers=theaders,
         data=json.dumps({
             'provider': None,
             'voip_provider': None
@@ -97,6 +115,19 @@ def sendMsg(emailAddr):
     )
 
     print(logout.text)
+
+    tdData = json.dumps({
+        'content': 'I am done with my work.',
+        'nonce': '',
+        'tts': 'false'
+    }, separators=(',', ':'))
+
+    tellDone = s.post(
+        url3,
+        allow_redirects=True,
+        headers=theaders,
+        data=tdData
+    )
 
 
 while True:
