@@ -13,32 +13,25 @@ import json
 
 
 #EU:
-#url1 = "https://discord.com/api/v9/channels/486268880575266816/messages"
+url1 = "https://discord.com/api/v9/channels/486268880575266816/messages"
 
 #RUSSIA:
-#url2 = "https://discord.com/api/v9/channels/486269045298167830/messages"
+url2 = "https://discord.com/api/v9/channels/486269045298167830/messages"
 
-url1 = "https://discord.com/api/v9/channels/857288688168599572/messages"
-url2 = "https://discord.com/api/v9/channels/857288707728080946/messages"
+#url1 = "https://discord.com/api/v9/channels/857288688168599572/messages"
+#url2 = "https://discord.com/api/v9/channels/857288707728080946/messages"
 
 
 postTimes = {
     '04:38': 'dc2@scumfiction.com',
     '10:38': 'dc1@scumfiction.com',
     '16:38': 'dc2@scumfiction.com',
-    '22:38': 'dc1@scumfiction.com',
-    '20:05': 'dc1@scumfiction.com',
-    '20:06': 'dc2@scumfiction.com',
-    '20:07': 'dc1@scumfiction.com',
-    '20:08': 'dc2@scumfiction.com',
-    '20:09': 'dc1@scumfiction.com'
+    '22:38': 'dc1@scumfiction.com'
 }
 
 
 def sendMsg(emailAddr):
-
     s = requests.Session()
-
     lHeaders = {
         "accept": "*/*",
         "accept-language": "de",
@@ -82,19 +75,10 @@ def sendMsg(emailAddr):
         'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5'
     }
 
-    files1 = [
-        ('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))
-    ]
-
-    files2 = [
-        ('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))
-    ]
-
-    response1 = requests.request(
-        "POST", url1, headers=headers, data=payload, files=files1)
-    response2 = requests.request(
-        "POST", url2, headers=headers, data=payload, files=files2)
-
+    files1 = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
+    files2 = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
+    response1 = requests.request("POST", url1, headers=headers, data=payload, files=files1)
+    response2 = requests.request("POST", url2, headers=headers, data=payload, files=files2)
     print('SENT FIRST MSG AT: ' + json.loads(response1.text)['timestamp'])
     print('SENT SECOND MSG AT: ' + json.loads(response2.text)['timestamp'])
 
