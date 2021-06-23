@@ -6,74 +6,100 @@ dc2@scumfiction.com | ItIsYeKoala
 Pass: Tr5A@wPFtv
 """
 
-import time
+from datetime import datetime
 import requests
+import time
+import json
+
+url1 = "https://discord.com/api/v9/channels/486268880575266816/messages"
+url2 = "https://discord.com/api/v9/channels/486269045298167830/messages"
 
 postTimes = {
-    '01:24': 'dc1@scumfiction.com',
-    '05:19': 'dc2@scumfiction.com',
-    '09:21': 'dc1@scumfiction.com',
-    '13:11': 'dc2@scumfiction.com',
-    '17:29': 'dc1@scumfiction.com',
-    '21:17': 'dc2@scumfiction.com',
+    '04:38': 'dc2@scumfiction.com',
+    '10:38': 'dc1@scumfiction.com',
+    '16:38': 'dc2@scumfiction.com',
+    '22:38': 'dc1@scumfiction.com',
 }
 
-post_channels = [
-    {
-        'url': 'https://discord.com/channels/837074161389142066/851024060753903628',
-        'description': 'Writing State (STARTING) in own Disi.',
-        'title': 'bot-msgs-state',
-        'content': ' - I am going to spam now.'
-    },
-    {
-        'url': 'https://discord.com/channels/228656196247093248/486268880575266816',
-        'description': 'Spamming dcSpam in channel eu.',
-        'title': 'eu',
-        'content': open('dcSpam.txt', 'r', newline='\r\n').read()
-    },
-    {
-        'url': 'https://discord.com/channels/228656196247093248/486269045298167830',
-        'description': 'Spamming dcSpam in channel russia.',
-        'title': 'russia',
-        'content': open('dcSpam.txt', 'r', newline='\r\n').read()
-    },
-    {
-        'url': 'https://discord.com/channels/837074161389142066/851024060753903628',
-        'description': 'Writing State (DONE) in own Disi.',
-        'title': 'bot-msgs-state',
-        'content': ' - I am DONE spamming.'
-    },
-]
 
+def sendMsg(email):
 
-s = requests.Session()
+    s = requests.Session()
 
-loginHeaders = {
-    "accept": "*/*",
-    "accept-language": "de",
-    "content-type": "application/json",
-    "sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"91\", \"Chromium\";v=\"91\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-fingerprint": "855066585407815690.Fs9bV-nTFBITCJ81aRajKUbCics",
-    "x-super-properties": "eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiQ2hyb21lIiwiZGV2aWNlIjoiIiwic3lzdGVtX2xvY2FsZSI6ImRlLUNIIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzkxLjAuNDQ3Mi4xMDYgU2FmYXJpLzUzNy4zNiIsImJyb3dzZXJfdmVyc2lvbiI6IjkxLjAuNDQ3Mi4xMDYiLCJvc192ZXJzaW9uIjoiMTAiLCJyZWZlcnJlciI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vIiwicmVmZXJyaW5nX2RvbWFpbiI6Ind3dy5nb29nbGUuY29tIiwic2VhcmNoX2VuZ2luZSI6Imdvb2dsZSIsInJlZmVycmVyX2N1cnJlbnQiOiIiLCJyZWZlcnJpbmdfZG9tYWluX2N1cnJlbnQiOiIiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfYnVpbGRfbnVtYmVyIjo4Nzc4MSwiY2xpZW50X2V2ZW50X3NvdXJjZSI6bnVsbH0=",
-    "cookie": "_fbp=fb.1.1615288328555.1927512170; __dcfduid=363a041375bd31546e412ef7924c1b56; rebrand_bucket=921da5ca5ff45c190cf7571ce8ecfc27; OptanonConsent=isIABGlobal=false&datestamp=Thu+Jun+17+2021+14%3A24%3A55+GMT%2B0200+(Mitteleurop%C3%A4ische+Sommerzeit)&version=6.17.0&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1&AwaitingReconsent=false; locale=de"
-}
+    lHeaders = {
+        "accept": "*/*",
+        "accept-language": "de",
+        "content-type": "application/json",
+        "sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"91\", \"Chromium\";v=\"91\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin",
+        "x-fingerprint": "855066585407815690.Fs9bV-nTFBITCJ81aRajKUbCics",
+        "x-super-properties": "eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiQ2hyb21lIiwiZGV2aWNlIjoiIiwic3lzdGVtX2xvY2FsZSI6ImRlLUNIIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzkxLjAuNDQ3Mi4xMDYgU2FmYXJpLzUzNy4zNiIsImJyb3dzZXJfdmVyc2lvbiI6IjkxLjAuNDQ3Mi4xMDYiLCJvc192ZXJzaW9uIjoiMTAiLCJyZWZlcnJlciI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vIiwicmVmZXJyaW5nX2RvbWFpbiI6Ind3dy5nb29nbGUuY29tIiwic2VhcmNoX2VuZ2luZSI6Imdvb2dsZSIsInJlZmVycmVyX2N1cnJlbnQiOiIiLCJyZWZlcnJpbmdfZG9tYWluX2N1cnJlbnQiOiIiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfYnVpbGRfbnVtYmVyIjo4Nzc4MSwiY2xpZW50X2V2ZW50X3NvdXJjZSI6bnVsbH0=",
+        "cookie": "_fbp=fb.1.1615288328555.1927512170; __dcfduid=363a041375bd31546e412ef7924c1b56; rebrand_bucket=921da5ca5ff45c190cf7571ce8ecfc27; OptanonConsent=isIABGlobal=false&datestamp=Thu+Jun+17+2021+14%3A24%3A55+GMT%2B0200+(Mitteleurop%C3%A4ische+Sommerzeit)&version=6.17.0&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1&AwaitingReconsent=false; locale=de"
+    }
 
-login = s.post(
-    'https://discord.com/api/v9/auth/login',
-    allow_redirects=True,
-    headers=loginHeaders,
-    data={
-        "login": "dc2@scumfiction.com",
+    lData = json.dumps({
+        "login": email,
         "password": "Tr5A@wPFtv",
         "undelete": "false",
         "captcha_key": "null",
-        "login_source": "null",
-        "gift_code_sku_id": "null"
-    }
-)
+        "login_source": "null"
+    }, separators=(',', ':'))
 
-print(login.text)
+    login = s.post(
+        'https://discord.com/api/v9/auth/login',
+        allow_redirects=True,
+        headers=lHeaders,
+        data=lData
+    )
+
+    data = json.loads(login.text)
+    token = data['token']
+
+    payload = {
+        'content': open('dcSpam.txt', 'r', newline='\r\n').read(),
+        'nonce': '',
+        'tts': 'false'
+    }
+
+    headers = {
+        'Authorization': 'ODUwNzUwMjU0ODczNTc1NDQ0.YNNn6w.zdFz11999BvflrKm7BlkAJjNnXg',
+        'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5'
+    }
+
+    files1 = [
+        ('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))
+    ]
+
+    files2 = [
+        ('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))
+    ]
+
+    response1 = requests.request(
+        "POST", url1, headers=headers, data=payload, files=files1)
+    response2 = requests.request(
+        "POST", url2, headers=headers, data=payload, files=files2)
+
+    print('SENT FIRST MSG AT: ' + json.loads(response1.text)['timestamp'])
+    print('SENT SECOND MSG AT: ' + json.loads(response2.text)['timestamp'])
+
+
+while True:
+    time.sleep(1)
+    now = datetime.now()
+    dt_string = now.strftime("%H:%M")
+    print('CHECKING: ' + now.strftime("%H:%M:%S"))
+    if(dt_string in postTimes.keys()):
+        print('SENDING MESSAGES')
+        sendMsg(postTimes[dt_string])
+        print('MESSAGES SENT. SLEEPING FOR 2 MINUTES...')
+        time.sleep(120)
+
+
+"""
+content = open('dcSpam.txt', 'r', newline='\r\n').read()
+sendMsg('dc1@scumfiction.com', content)
+sendMsg('dc2@scumfiction.com', content)
+"""
