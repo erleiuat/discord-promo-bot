@@ -27,15 +27,15 @@ postTimes = {
     '10:38': 'dc1@scumfiction.com',
     '16:38': 'dc2@scumfiction.com',
     '22:38': 'dc1@scumfiction.com',
-    '19:50': 'dc1@scumfiction.com',
-    '19:51': 'dc2@scumfiction.com',
-    '19:52': 'dc1@scumfiction.com',
-    '19:53': 'dc2@scumfiction.com',
-    '19:54': 'dc1@scumfiction.com'
+    '20:05': 'dc1@scumfiction.com',
+    '20:06': 'dc2@scumfiction.com',
+    '20:07': 'dc1@scumfiction.com',
+    '20:08': 'dc2@scumfiction.com',
+    '20:09': 'dc1@scumfiction.com'
 }
 
 
-def sendMsg(email):
+def sendMsg(emailAddr):
 
     s = requests.Session()
 
@@ -54,7 +54,7 @@ def sendMsg(email):
     }
 
     lData = json.dumps({
-        "login": email,
+        "login": emailAddr,
         "password": "Tr5A@wPFtv",
         "undelete": "false",
         "captcha_key": "null",
@@ -78,7 +78,7 @@ def sendMsg(email):
     }
 
     headers = {
-        'Authorization': 'ODUwNzUwMjU0ODczNTc1NDQ0.YNNn6w.zdFz11999BvflrKm7BlkAJjNnXg',
+        'Authorization': token,
         'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5'
     }
 
@@ -98,6 +98,22 @@ def sendMsg(email):
     print('SENT FIRST MSG AT: ' + json.loads(response1.text)['timestamp'])
     print('SENT SECOND MSG AT: ' + json.loads(response2.text)['timestamp'])
 
+    logout = s.post(
+        'https://discord.com/api/v9/auth/logout',
+        allow_redirects=True,
+        headers={
+            'Authorization': token,
+            'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5',
+            'content-type': 'application/json'
+        },
+        data=json.dumps({
+            'provider': None,
+            'voip_provider': None
+        })
+    )
+
+    print(logout.text)
+
 
 while True:
     time.sleep(1)
@@ -105,14 +121,7 @@ while True:
     dt_string = now.strftime("%H:%M")
     print('CHECKING: ' + now.strftime("%H:%M:%S"))
     if(dt_string in postTimes.keys()):
-        print('SENDING MESSAGES')
+        print('SENDING MESSAGES WITH: ' + postTimes[dt_string])
         sendMsg(postTimes[dt_string])
         print('MESSAGES SENT. SLEEPING FOR ONE MINUTE...')
         time.sleep(60)
-
-
-"""
-content = open('dcSpam.txt', 'r', newline='\r\n').read()
-sendMsg('dc1@scumfiction.com', content)
-sendMsg('dc2@scumfiction.com', content)
-"""
