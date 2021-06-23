@@ -11,14 +11,27 @@ import requests
 import time
 import json
 
-url1 = "https://discord.com/api/v9/channels/486268880575266816/messages"
-url2 = "https://discord.com/api/v9/channels/486269045298167830/messages"
+
+#EU:
+#url1 = "https://discord.com/api/v9/channels/486268880575266816/messages"
+
+#RUSSIA:
+#url2 = "https://discord.com/api/v9/channels/486269045298167830/messages"
+
+url1 = "https://discord.com/api/v9/channels/857288688168599572/messages"
+url2 = "https://discord.com/api/v9/channels/857288707728080946/messages"
+
 
 postTimes = {
     '04:38': 'dc2@scumfiction.com',
     '10:38': 'dc1@scumfiction.com',
     '16:38': 'dc2@scumfiction.com',
     '22:38': 'dc1@scumfiction.com',
+    '19:50': 'dc1@scumfiction.com',
+    '19:51': 'dc2@scumfiction.com',
+    '19:52': 'dc1@scumfiction.com',
+    '19:53': 'dc2@scumfiction.com',
+    '19:54': 'dc1@scumfiction.com'
 }
 
 
@@ -94,8 +107,8 @@ while True:
     if(dt_string in postTimes.keys()):
         print('SENDING MESSAGES')
         sendMsg(postTimes[dt_string])
-        print('MESSAGES SENT. SLEEPING FOR 2 MINUTES...')
-        time.sleep(120)
+        print('MESSAGES SENT. SLEEPING FOR ONE MINUTE...')
+        time.sleep(60)
 
 
 """
