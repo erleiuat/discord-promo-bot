@@ -9,9 +9,11 @@ url_login = "https://discord.com/api/v9/auth/login"
 url_logout = "https://discord.com/api/v9/auth/logout"
 password = "Tr5A@wPFtv"
 
-#eu		    486268880575266816
-#russia	    486269045298167830
-#asia	    486268997633966090
+#eu			486268880575266816
+#russia		486269045298167830
+#asia		486268997633966090
+#us-east	486268909113311242
+#us-west	486268938137632768
 #_update    857320680336392223
 
 
@@ -20,13 +22,25 @@ chInfo = {
     'eu': {
         'name': '#EU',
         'channel': '486268880575266816',
-        'content': 'dcSpam_eu.txt',
+        'content': 'dcSpam_default.txt',
         'image': True
+    },
+    'us-east': {
+        'name': '#US-EAST',
+        'channel': '486268909113311242',
+        'content': 'dcSpam_default.txt',
+        'image': False
+    },
+    'us-west': {
+        'name': '#US-WEST',
+        'channel': '486268938137632768',
+        'content': 'dcSpam_default.txt',
+        'image': False
     },
     'russia': {
         'name': '#RUSSIA',
         'channel': '486269045298167830',
-        'content': 'dcSpam_russia.txt',
+        'content': 'dcSpam_default.txt',
         'image': True
     },
     'asia': {
@@ -50,6 +64,12 @@ postTimes = {
         '10:35': 'dc2@scumfiction.com',
         '16:35': 'dc1@scumfiction.com',
         '22:35': 'dc2@scumfiction.com'
+    },
+    'us-east': {
+        '01:35': 'dc1@scumfiction.com'
+    },
+    'us-west': {
+        '02:35': 'dc1@scumfiction.com'
     },
     'russia': {
         '09:35': 'dc2@scumfiction.com',
@@ -183,6 +203,12 @@ while True:
 
     if(dt_string in postTimes['eu'].keys()):
         doIt(postTimes['eu'][dt_string], chInfo['eu'])
+
+    elif(dt_string in postTimes['us-east'].keys()):
+        doIt(postTimes['us-east'][dt_string], chInfo['us-east'])
+
+    elif(dt_string in postTimes['us-west'].keys()):
+        doIt(postTimes['us-west'][dt_string], chInfo['us-west'])
 
     elif(dt_string in postTimes['russia'].keys()):
         doIt(postTimes['russia'][dt_string], chInfo['russia'])

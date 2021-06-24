@@ -4,6 +4,8 @@ TIMEHERE		CHANNEL			GOODFOR			TIMETHERE
 16:30			#eu				German			16:30
 15:30			#russia			Russia			16:30
 08:30			#asia			Japan			15:30
+01:30			#us-east		USA				18:30
+02:30			#us-west		USA 			18:30
 
 
 --------------------------------
@@ -27,6 +29,8 @@ Pass: Tr5A@wPFtv
 --------------------------------
 
 SCUM-Game Channels:
-#eu		486268880575266816
-#russia	486269045298167830
-#asia	486268997633966090
+#eu			486268880575266816
+#russia		486269045298167830
+#asia		486268997633966090
+#us-east	486268909113311242
+#us-west	486268938137632768
