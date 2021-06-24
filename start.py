@@ -177,7 +177,7 @@ def randomSleep():
     randomSleep = random.randint(5, 50)
     print('[SLEEP] -> WAITING FOR ' + str(randomSleep) + ' MINUTES BEFORE SENDING...')
     for x in range(randomSleep):
-        print('[SLEEP] -> '+(randomSleep-x)+' REMAINING...')
+        print('[SLEEP] -> '+str(randomSleep-x)+' REMAINING...')
         time.sleep(60)
     print('[SLEEP] -> DONE: CONTINUING')
 
