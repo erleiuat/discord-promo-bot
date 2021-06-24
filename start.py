@@ -61,24 +61,24 @@ chInfo = {
 
 postTimes = {
     'eu': {
-        '10:35': 'dc2@scumfiction.com',
-        '16:35': 'dc1@scumfiction.com',
-        '22:35': 'dc2@scumfiction.com'
+        '10:00': 'dc2@scumfiction.com',
+        '16:00': 'dc1@scumfiction.com',
+        '22:00': 'dc2@scumfiction.com'
     },
     'us-east': {
-        '01:35': 'dc1@scumfiction.com'
+        '01:00': 'dc1@scumfiction.com'
     },
     'us-west': {
-        '02:35': 'dc1@scumfiction.com',
-        '08:35': 'dc2@scumfiction.com'
+        '00:00': 'dc1@scumfiction.com',
+        '07:00': 'dc2@scumfiction.com'
     },
     'russia': {
-        '15:35': 'dc1@scumfiction.com',
-        '21:35': 'dc2@scumfiction.com'
+        '15:00': 'dc1@scumfiction.com',
+        '21:00': 'dc2@scumfiction.com'
     },
     'asia': {
-        '06:35': 'dc10@scumfiction.com',
-        '19:35': 'dc10@scumfiction.com'
+        '06:00': 'dc10@scumfiction.com',
+        '17:00': 'dc10@scumfiction.com'
     }
 }
 
@@ -172,12 +172,12 @@ def sendMessage(ch, token, content):
 
 
 def randomSleep():
-    randomSleep = random.randint(2, 17)
+    randomSleep = random.randint(5, 50)
     print('[SLEEP] -> WAITING FOR ' + str(randomSleep) + ' MINUTES BEFORE SENDING...')
-    time.sleep(randomSleep*60/2)
-    print('[SLEEP] -> HALF WAY THERE...')
-    time.sleep(randomSleep*60/2)
-    print('[SLEEP] -> CONTINUING')
+    for x in range(randomSleep)
+        print('[SLEEP] -> '+(randomSleep-x)+' REMAINING...')
+        time.sleep(60)
+    print('[SLEEP] -> DONE: CONTINUING')
 
 
 
