@@ -174,9 +174,6 @@ def doIt(mail, ch):
     print('\n[MSGS] -> MESSAGES SENT\n')
 
 
-doIt(postTimes['russia']['15:35'], chInfo['russia'])
-
-"""
 while True:
     time.sleep(5)
 
@@ -192,4 +189,3 @@ while True:
 
     elif(dt_string in postTimes['asia'].keys()):
         doIt(postTimes['asia'][dt_string], chInfo['asia'])
-"""
