@@ -140,8 +140,13 @@ def sendMessage(ch, token, content):
         },
         files=files
     )
-    print('[MSGS] -> SENT MESSAGE AT: ' +
-          json.loads(response.text)['timestamp'] + '\n')
+
+    if(not isinstance(response.text, str) and 'timestamp' in response.text.keys()):
+        print('[MSGS] -> SENT MESSAGE AT: ' +
+            json.loads(response.text)['timestamp'] + '\n')
+    else:
+        print(response.text)
+    
 
 
 
@@ -157,7 +162,7 @@ def randomSleep():
 
 def doIt(mail, ch):
     print('\n[MSGS] -> SENDING MESSAGES WITH "'+mail+'" TO "'+ch['name']+'"\n')
-    randomSleep()
+    #randomSleep()
     token = sendLogin(mail)
     sendMessage(chInfo['update'], token, 'I am going to do my work now in **' + ch['name'] + '**')
     time.sleep(2)
@@ -169,7 +174,9 @@ def doIt(mail, ch):
     print('\n[MSGS] -> MESSAGES SENT\n')
 
 
+doIt(postTimes['russia']['15:35'], chInfo['russia'])
 
+"""
 while True:
     time.sleep(5)
 
@@ -185,3 +192,4 @@ while True:
 
     elif(dt_string in postTimes['asia'].keys()):
         doIt(postTimes['asia'][dt_string], chInfo['asia'])
+"""
