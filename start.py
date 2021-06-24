@@ -28,20 +28,20 @@ chInfo = {
     'us-east': {
         'name': '#US-EAST',
         'channel': '486268909113311242',
-        'content': 'dcSpam_default.txt',
+        'content': 'dcSpam_default2.txt',
         'image': False
     },
     'us-west': {
         'name': '#US-WEST',
         'channel': '486268938137632768',
-        'content': 'dcSpam_default.txt',
-        'image': False
+        'content': 'dcSpam_default2.txt',
+        'image': True
     },
     'russia': {
         'name': '#RUSSIA',
         'channel': '486269045298167830',
-        'content': 'dcSpam_default.txt',
-        'image': True
+        'content': 'dcSpam_default2.txt',
+        'image': False
     },
     'asia': {
         'name': '#ASIA',
