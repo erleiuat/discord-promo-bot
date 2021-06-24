@@ -74,7 +74,7 @@ postTimes = {
     },
     'russia': {
         '13:00': 'dc1@scumfiction.com',
-        '21:05': 'dc2@scumfiction.com'
+        '21:00': 'dc2@scumfiction.com'
     },
     'asia': {
         '05:00': 'dc10@scumfiction.com',
@@ -162,9 +162,10 @@ def sendMessage(ch, token, content):
         files=files
     )
 
-    if(not isinstance(response.text, str) and 'timestamp' in response.text.keys()):
+    data = json.loads(response.text)
+    if(not isinstance(data, str) and 'timestamp' in data.keys()):
         print('[MSGS] -> SENT MESSAGE AT: ' +
-            json.loads(response.text)['timestamp'] + '\n')
+              data['timestamp'] + '\n')
         return True
     else:
         print(response.text)
