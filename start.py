@@ -165,8 +165,10 @@ def sendMessage(ch, token, content):
     if(not isinstance(response.text, str) and 'timestamp' in response.text.keys()):
         print('[MSGS] -> SENT MESSAGE AT: ' +
             json.loads(response.text)['timestamp'] + '\n')
+        return True
     else:
         print(response.text)
+        return False
     
 
 
@@ -187,9 +189,12 @@ def doIt(mail, ch):
     token = sendLogin(mail)
     sendMessage(chInfo['update'], token, 'I am going to do my work now in **' + ch['name'] + '**')
     time.sleep(2)
-    sendMessage(ch, token, open(ch['content'], 'r', newline='\r\n').read())
+    success = sendMessage(ch, token, open(ch['content'], 'r', newline='\r\n').read())
     time.sleep(2)
-    sendMessage(chInfo['update'], token, 'I am done.')
+    if(success):
+        sendMessage(chInfo['update'], token, 'I am done.')
+    else:
+        sendMessage(chInfo['update'], token, 'I am done but it was **unsuccessful**.')
     sendLogout(token)
     time.sleep(2)
     print('\n[MSGS] -> MESSAGES SENT\n')
