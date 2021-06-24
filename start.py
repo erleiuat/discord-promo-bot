@@ -178,10 +178,10 @@ while True:
     print('[CHECKING] -> ' + now.strftime("%H:%M:%S"))
 
     if(dt_string in postTimes['eu'].keys()):
-        doIt(postTimes[dt_string], chInfo['eu'])
+        doIt(postTimes['eu'][dt_string], chInfo['eu'])
 
     elif(dt_string in postTimes['russia'].keys()):
-        doIt(postTimes[dt_string], chInfo['russia'])
+        doIt(postTimes['russia'][dt_string], chInfo['russia'])
 
     elif(dt_string in postTimes['asia'].keys()):
-        doIt(postTimes[dt_string], chInfo['asia'])
+        doIt(postTimes['asia'][dt_string], chInfo['asia'])
