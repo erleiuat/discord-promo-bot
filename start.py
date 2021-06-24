@@ -66,18 +66,18 @@ postTimes = {
         '22:00': 'dc2@scumfiction.com'
     },
     'us-east': {
-        '01:00': 'dc1@scumfiction.com'
+        '02:00': 'dc1@scumfiction.com'
     },
     'us-west': {
         '00:00': 'dc1@scumfiction.com',
         '07:00': 'dc2@scumfiction.com'
     },
     'russia': {
-        '15:00': 'dc1@scumfiction.com',
+        '13:00': 'dc1@scumfiction.com',
         '21:00': 'dc2@scumfiction.com'
     },
     'asia': {
-        '06:00': 'dc10@scumfiction.com',
+        '05:00': 'dc10@scumfiction.com',
         '17:00': 'dc10@scumfiction.com'
     }
 }
