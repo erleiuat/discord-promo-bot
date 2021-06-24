@@ -1,5 +1,4 @@
-Name: **ScumFiction**
-
+Name: ScumFiction
 IP: 50.3.80.210:7062
 Type: PVP with one PVE zone for beginners as well as small PVE-Zones for safe looting.
 BattleMetrics: https://www.battlemetrics.com/servers/scum/11570518
@@ -18,5 +17,4 @@ Description:
 :black_square_button: Killfeed, No-Admin-Abuse Channel and more on discord
 :black_square_button: Very active admins / fast support
 
-
- :point_right: Discord: https://discord.gg/rnmwVJ4n5T
+:point_right: Discord: https://discord.gg/rnmwVJ4n5T
