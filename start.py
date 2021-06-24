@@ -131,7 +131,7 @@ def sendMsg(emailAddr):
 
 
 while True:
-    time.sleep(1)
+    time.sleep(5)
     now = datetime.now()
     dt_string = now.strftime("%H:%M")
     print('CHECKING: ' + now.strftime("%H:%M:%S"))
