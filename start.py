@@ -35,18 +35,18 @@ chInfo = {
         'name': '#US-WEST',
         'channel': '486268938137632768',
         'content': 'dcSpam_default2.txt',
-        'image': True
+        'image': False
     },
     'russia': {
         'name': '#RUSSIA',
         'channel': '486269045298167830',
-        'content': 'dcSpam_default2.txt',
-        'image': False
+        'content': 'dcSpam_default.txt',
+        'image': True
     },
     'asia': {
         'name': '#ASIA',
         'channel': '486268997633966090',
-        'content': 'dcSpam_asia.txt',
+        'content': 'dcSpam_default2.txt',
         'image': False
     },
     'update': {
@@ -70,9 +70,9 @@ postTimes = {
     },
     'us-west': {
         '02:35': 'dc1@scumfiction.com'
+        '08:35': 'dc2@scumfiction.com',
     },
     'russia': {
-        '09:35': 'dc2@scumfiction.com',
         '15:35': 'dc1@scumfiction.com',
         '21:35': 'dc2@scumfiction.com'
     },
