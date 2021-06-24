@@ -162,7 +162,7 @@ def randomSleep():
 
 def doIt(mail, ch):
     print('\n[MSGS] -> SENDING MESSAGES WITH "'+mail+'" TO "'+ch['name']+'"\n')
-    #randomSleep()
+    randomSleep()
     token = sendLogin(mail)
     sendMessage(chInfo['update'], token, 'I am going to do my work now in **' + ch['name'] + '**')
     time.sleep(2)
