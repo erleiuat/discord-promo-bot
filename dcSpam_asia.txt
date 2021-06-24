@@ -1,0 +1,22 @@
+Name: **ScumFiction**
+
+IP: 50.3.80.210:7062
+Type: PVP with one PVE zone for beginners as well as small PVE-Zones for safe looting.
+BattleMetrics: https://www.battlemetrics.com/servers/scum/11570518
+
+Description:
+:black_square_button: Ingame-Bot
+:black_square_button: Admin-Shop with cars and more
+:black_square_button: Starterkit
+:black_square_button: High loot & cars
+:black_square_button: Very high performance and good ping
+:black_square_button: Many Zombies with lower damage
+:black_square_button: Votings on Discord for server changes or similar
+:black_square_button: Build everywhere (even inside cities etc.)
+:black_square_button: No Mechs & No Drones
+:black_square_button: Events
+:black_square_button: Killfeed, No-Admin-Abuse Channel and more on discord
+:black_square_button: Very active admins / fast support
+
+
+ :point_right: Discord: https://discord.gg/rnmwVJ4n5T

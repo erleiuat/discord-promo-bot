@@ -1,142 +1,187 @@
-"""
-DC-Users:
-dc1@scumfiction.com | Ardalrex
-dc2@scumfiction.com | ItIsYeKoala
-
-Pass: Tr5A@wPFtv
-"""
-
 from datetime import datetime
 import requests
 import time
 import json
+import random
 
 
-#EU:
-url1 = "https://discord.com/api/v9/channels/486268880575266816/messages"
+url_login = "https://discord.com/api/v9/auth/login"
+url_logout = "https://discord.com/api/v9/auth/logout"
+password = "Tr5A@wPFtv"
 
-#RUSSIA:
-url2 = "https://discord.com/api/v9/channels/486269045298167830/messages"
+#eu		    486268880575266816
+#russia	    486269045298167830
+#asia	    486268997633966090
+#_update    857320680336392223
 
-#url1 = "https://discord.com/api/v9/channels/857288688168599572/messages"
-#url2 = "https://discord.com/api/v9/channels/857288707728080946/messages"
 
-#Approvement-Channel:
-url3 = "https://discord.com/api/v9/channels/857320680336392223/messages"
 
-postTimes = {
-    '04:38': 'dc2@scumfiction.com',
-    '10:38': 'dc1@scumfiction.com',
-    '16:38': 'dc2@scumfiction.com',
-    '22:38': 'dc1@scumfiction.com'
+chInfo = {
+    'eu': {
+        'name': '#EU',
+        'channel': '486268880575266816',
+        'content': 'dcSpam_eu.txt',
+        'image': True
+    },
+    'russia': {
+        'name': '#RUSSIA',
+        'channel': '486269045298167830',
+        'content': 'dcSpam_russia.txt',
+        'image': True
+    },
+    'asia': {
+        'name': '#ASIA',
+        'channel': '486268997633966090',
+        'content': 'dcSpam_asia.txt',
+        'image': False
+    },
+    'update': {
+        'name': '#promo-bot-work',
+        'channel': '857320680336392223',
+        'content': None,
+        'image': False
+    }
 }
 
 
-def sendMsg(emailAddr):
-    s = requests.Session()
-    lHeaders = {
-        "accept": "*/*",
-        "accept-language": "de",
-        "content-type": "application/json",
-        "sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"91\", \"Chromium\";v=\"91\"",
-        "sec-ch-ua-mobile": "?0",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
-        "x-fingerprint": "855066585407815690.Fs9bV-nTFBITCJ81aRajKUbCics",
-        "x-super-properties": "eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiQ2hyb21lIiwiZGV2aWNlIjoiIiwic3lzdGVtX2xvY2FsZSI6ImRlLUNIIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzkxLjAuNDQ3Mi4xMDYgU2FmYXJpLzUzNy4zNiIsImJyb3dzZXJfdmVyc2lvbiI6IjkxLjAuNDQ3Mi4xMDYiLCJvc192ZXJzaW9uIjoiMTAiLCJyZWZlcnJlciI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vIiwicmVmZXJyaW5nX2RvbWFpbiI6Ind3dy5nb29nbGUuY29tIiwic2VhcmNoX2VuZ2luZSI6Imdvb2dsZSIsInJlZmVycmVyX2N1cnJlbnQiOiIiLCJyZWZlcnJpbmdfZG9tYWluX2N1cnJlbnQiOiIiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfYnVpbGRfbnVtYmVyIjo4Nzc4MSwiY2xpZW50X2V2ZW50X3NvdXJjZSI6bnVsbH0=",
-        "cookie": "_fbp=fb.1.1615288328555.1927512170; __dcfduid=363a041375bd31546e412ef7924c1b56; rebrand_bucket=921da5ca5ff45c190cf7571ce8ecfc27; OptanonConsent=isIABGlobal=false&datestamp=Thu+Jun+17+2021+14%3A24%3A55+GMT%2B0200+(Mitteleurop%C3%A4ische+Sommerzeit)&version=6.17.0&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1&AwaitingReconsent=false; locale=de"
+
+postTimes = {
+    'eu': {
+        '10:35': 'dc2@scumfiction.com',
+        '16:35': 'dc1@scumfiction.com',
+        '22:35': 'dc2@scumfiction.com'
+    },
+    'russia': {
+        '09:35': 'dc2@scumfiction.com',
+        '15:35': 'dc1@scumfiction.com',
+        '21:35': 'dc2@scumfiction.com'
+    },
+    'asia': {
+        '06:35': 'dc10@scumfiction.com'
     }
+}
 
-    lData = json.dumps({
-        "login": emailAddr,
-        "password": "Tr5A@wPFtv",
-        "undelete": "false",
-        "captcha_key": "null",
-        "login_source": "null"
-    }, separators=(',', ':'))
 
-    login = s.post(
-        'https://discord.com/api/v9/auth/login',
-        allow_redirects=True,
-        headers=lHeaders,
-        data=lData
+
+def sendLogin(mail): 
+    print('[AUTH] -> LOGGING IN')
+
+    login = requests.post(
+        url_login,
+        allow_redirects = True,
+        headers = {
+            "accept": "*/*",
+            "content-type": "application/json"
+        },
+        data = json.dumps({
+            "login": mail,
+            "password": password,
+            "undelete": "false",
+            "captcha_key": "null",
+            "login_source": "null"
+        }, separators=(',', ':'))
     )
 
     data = json.loads(login.text)
-    token = data['token']
-    theaders = {
-        'Authorization': token,
-        'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5',
-        'content-type': 'application/json'
-    }
 
-    tgData = json.dumps({
-        'content': 'I am going to do my work now.',
-        'nonce': '',
-        'tts': 'false'
-    }, separators=(',', ':'))
-
-    tellGo = s.post(
-        url3,
-        allow_redirects=True,
-        headers=theaders,
-        data=tgData
-    )
+    if('token' in data.keys()):
+        print('[AUTH] -> LOGIN SUCCESSFUL')
+        return data['token']
+    else:
+        print('[AUTH] -> LOGIN FAILED')
+        return False
 
 
 
-    headers = {
-        'Authorization': token,
-        'Cookie': '__dcfduid=1e6ac93762cb42c681776b2882fdd5e5',
-    }
-    payload = {
-        'content': open('dcSpam.txt', 'r', newline='\r\n').read(),
-        'nonce': '',
-        'tts': 'false'
-    }
-    files1 = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
-    files2 = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
-    response1 = requests.request("POST", url1, headers=headers, data=payload, files=files1)
-    response2 = requests.request("POST", url2, headers=headers, data=payload, files=files2)
-    print('SENT FIRST MSG AT: ' + json.loads(response1.text)['timestamp'])
-    print('SENT SECOND MSG AT: ' + json.loads(response2.text)['timestamp'])
+def sendLogout(token):
+    print('[AUTH] -> LOGGING OUT')
 
-
-
-    logout = s.post(
-        'https://discord.com/api/v9/auth/logout',
-        allow_redirects=True,
-        headers=theaders,
-        data=json.dumps({
+    logout = requests.post(
+        url_logout,
+        allow_redirects = True,
+        headers = {
+            "accept": "*/*",
+            "content-type": "application/json",
+            'Authorization': token
+        },
+        data = json.dumps({
             'provider': None,
             'voip_provider': None
         })
     )
 
-    print(logout.text)
+    if(not logout.text):
+        print('[AUTH] -> LOGOUT SUCCESSFUL')
+        return True
+    else:
+        print('[AUTH] -> LOGOUT PROBABLY UNSUCCESSFUL')
+        return False
 
-    tdData = json.dumps({
-        'content': 'I am done with my work.',
-        'nonce': '',
-        'tts': 'false'
-    }, separators=(',', ':'))
 
-    tellDone = s.post(
-        url3,
-        allow_redirects=True,
-        headers=theaders,
-        data=tdData
+
+def sendMessage(ch, token, content):
+    print('\n[MSGS] -> SENDING MESSAGE TO "'+ch['name']+'"')
+
+    if(ch['image']):
+        files = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
+    else:
+        files = None
+
+    response = requests.request(
+        "POST", 
+        "https://discord.com/api/v9/channels/"+ch['channel']+"/messages",
+        headers={
+            'Authorization': token
+        },
+        data={
+            'content': content,
+            'nonce': '',
+            'tts': 'false'
+        },
+        files=files
     )
+    print('[MSGS] -> SENT MESSAGE AT: ' +
+          json.loads(response.text)['timestamp'] + '\n')
+
+
+
+def randomSleep():
+    randomSleep = random.randint(2, 17)
+    print('[SLEEP] -> WAITING FOR ' + str(randomSleep) + ' MINUTES BEFORE SENDING...')
+    time.sleep(randomSleep*60/2)
+    print('[SLEEP] -> HALF WAY THERE...')
+    time.sleep(randomSleep*60/2)
+    print('[SLEEP] -> CONTINUING')
+
+
+
+def doIt(mail, ch):
+    print('\n[MSGS] -> SENDING MESSAGES WITH "'+mail+'" TO "'+ch['name']+'"\n')
+    randomSleep()
+    token = sendLogin(mail)
+    sendMessage(chInfo['update'], token, 'I am going to do my work now in **' + ch['name'] + '**')
+    time.sleep(2)
+    sendMessage(ch, token, open(ch['content'], 'r', newline='\r\n').read())
+    time.sleep(2)
+    sendMessage(chInfo['update'], token, 'I am done.')
+    sendLogout(token)
+    time.sleep(2)
+    print('\n[MSGS] -> MESSAGES SENT\n')
+
 
 
 while True:
     time.sleep(5)
+
     now = datetime.now()
     dt_string = now.strftime("%H:%M")
-    print('CHECKING: ' + now.strftime("%H:%M:%S"))
-    if(dt_string in postTimes.keys()):
-        print('SENDING MESSAGES WITH: ' + postTimes[dt_string])
-        sendMsg(postTimes[dt_string])
-        print('MESSAGES SENT. SLEEPING FOR ONE MINUTE...')
-        time.sleep(60)
+    print('[CHECKING] -> ' + now.strftime("%H:%M:%S"))
+
+    if(dt_string in postTimes['eu'].keys()):
+        doIt(postTimes[dt_string], chInfo['eu'])
+
+    elif(dt_string in postTimes['russia'].keys()):
+        doIt(postTimes[dt_string], chInfo['russia'])
+
+    elif(dt_string in postTimes['asia'].keys()):
+        doIt(postTimes[dt_string], chInfo['asia'])
