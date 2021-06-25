@@ -46,7 +46,7 @@ chInfo = {
     'asia': {
         'name': '#ASIA',
         'channel': '486268997633966090',
-        'content': 'dcSpam_default2.txt',
+        'content': 'dcSpam_asia.txt',
         'image': False
     },
     'update': {
