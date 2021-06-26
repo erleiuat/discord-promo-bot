@@ -61,19 +61,19 @@ chInfo = {
 
 postTimes = {
     'eu': {
-        '01:00': 'dc2@scumfiction.com',
-        '07:00': 'dc1@scumfiction.com',
-        '13:00': 'dc2@scumfiction.com',
-        '19:00': 'dc1@scumfiction.com'
+        '01:15': 'dc2@scumfiction.com',
+        '07:15': 'dc1@scumfiction.com',
+        '13:15': 'dc2@scumfiction.com',
+        '19:15': 'dc1@scumfiction.com'
     },
     'russia': {
-        '00:00': 'dc2@scumfiction.com',
-        '06:00': 'dc1@scumfiction.com',
-        '12:00': 'dc2@scumfiction.com',
-        '18:00': 'dc1@scumfiction.com'
+        '00:15': 'dc2@scumfiction.com',
+        '06:15': 'dc1@scumfiction.com',
+        '12:15': 'dc2@scumfiction.com',
+        '18:15': 'dc1@scumfiction.com'
     },
     'asia': {
-        '05:00': 'dc10@scumfiction.com',
+        '05:15': 'dc10@scumfiction.com',
         #'17:00': 'dc10@scumfiction.com'
     },
     'us-east': {
@@ -178,7 +178,7 @@ def sendMessage(ch, token, content):
 
 
 def randomSleep():
-    randomSleep = random.randint(5, 50)
+    randomSleep = random.randint(5, 25)
     print('[SLEEP] -> WAITING FOR ' + str(randomSleep) + ' MINUTES BEFORE SENDING...')
     for x in range(randomSleep):
         print('[SLEEP] -> '+str(randomSleep-x)+' REMAINING...')
