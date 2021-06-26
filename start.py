@@ -73,8 +73,7 @@ postTimes = {
         '18:15': 'dc1@scumfiction.com'
     },
     'asia': {
-        '05:15': 'dc10@scumfiction.com',
-        #'17:00': 'dc10@scumfiction.com'
+        '05:15': 'dc10@scumfiction.com'
     },
     'us-east': {
         #'02:00': 'dc8@scumfiction.com'
