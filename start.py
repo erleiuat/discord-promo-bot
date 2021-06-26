@@ -61,24 +61,27 @@ chInfo = {
 
 postTimes = {
     'eu': {
-        '09:00': 'dc2@scumfiction.com',
-        '15:00': 'dc1@scumfiction.com',
-        '21:00': 'dc2@scumfiction.com'
+        '01:00': 'dc2@scumfiction.com',
+        '07:00': 'dc1@scumfiction.com',
+        '13:00': 'dc2@scumfiction.com',
+        '19:00': 'dc1@scumfiction.com'
     },
     'russia': {
-        '12:00': 'dc1@scumfiction.com',
-        '20:00': 'dc2@scumfiction.com'
+        '00:00': 'dc2@scumfiction.com',
+        '06:00': 'dc1@scumfiction.com',
+        '12:00': 'dc2@scumfiction.com',
+        '18:00': 'dc1@scumfiction.com'
     },
     'asia': {
         '05:00': 'dc10@scumfiction.com',
-        '17:00': 'dc10@scumfiction.com'
+        #'17:00': 'dc10@scumfiction.com'
     },
     'us-east': {
-        '02:00': 'dc8@scumfiction.com'
+        #'02:00': 'dc8@scumfiction.com'
     },
     'us-west': {
-        '00:00': 'dc9@scumfiction.com',
-        '07:00': 'dc8@scumfiction.com'
+        #'00:00': 'dc9@scumfiction.com',
+        #'07:00': 'dc8@scumfiction.com'
     }
 }
 
