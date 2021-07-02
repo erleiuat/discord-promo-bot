@@ -61,14 +61,14 @@ chInfo = {
 
 postTimes = {
     'eu': {
-        '10:45': 'dc1@scumfiction.com', # 10:45 - 11:00
-        '17:05': 'dc1@scumfiction.com', # 17:05 - 17:20
-        '23:25': 'dc1@scumfiction.com'  # 23:25 - 23:40
-    },
-    'russia': {
         '09:45': 'dc1@scumfiction.com', # 09:45 - 10:00
         '16:05': 'dc1@scumfiction.com', # 16:05 - 16:20
         '22:25': 'dc1@scumfiction.com'  # 22:25 - 22:40
+    },
+    'russia': {
+        '08:45': 'dc1@scumfiction.com', # 08:45 - 09:00
+        '15:05': 'dc1@scumfiction.com', # 15:05 - 15:20
+        '21:25': 'dc1@scumfiction.com'  # 21:25 - 21:40
     },
     'asia': {
         #'05:15': 'dc10@scumfiction.com'
