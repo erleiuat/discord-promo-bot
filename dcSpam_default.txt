@@ -2,41 +2,51 @@
 
 
 
-Name:                   <a:sf_s_1:857688244279836675> <a:sf_c_1:857688243927777340> <a:sf_u_1:857686626356166707> <a:sf_m_1:857688244748681226> <a:sf_f_1:857688243989774386> <a:sf_i_1:857691040185188419> <a:sf_c_2:857688243567067166> <a:sf_t_1:857688244257947658> <a:sf_i_2:857691832526569522> <a:sf_o_1:857688243812958278> <a:sf_n_1:857688244816838698>
+Name:                   :sf_s_1: :sf_c_1: :sf_u_1: :sf_m_1: :sf_f_1: :sf_i_1: :sf_c_2: :sf_t_1: :sf_i_2: :sf_o_1: :sf_n_1:
 
 IP:                                            **__ 50.3.80.210:7062 __**   
 
 
-Type:         ** PvP + PvE **
 BM:            ** https://www.battlemetrics.com/servers/scum/11570518 **
 
 
-**HOSTED @ MAXIMUM PERFORMANCE**, with on the fly ability to increase ressources for **lag-free gaming**. Good Ping is guaranteed!
+_**"Feel the real, original flavor of the game without distractions or other interference. But still experience the thrilling gameplay of a infected world possessed by zombies."**_
+_-With full support in case of bugs, annoyances and other troubles_
 
 
-:large_blue_diamond:   Small **Starterkit**     <a:dance2:857694561631207434>
-:large_blue_diamond:   **Increased Loot** (x8)
-:large_blue_diamond:   PVE-Looting-Zones for newcomers    
-:large_blue_diamond:   **Ingame-Bot** for votings and more   <a:PartyTime:857694562289582100> 
-:large_blue_diamond:   40 Slots (will be extended if required)
-:large_blue_diamond:   **Bot-Shop** (Early-Access, no "pay-to-win")
-:large_blue_diamond:   **Many puppets** with slightly lower damage
-:large_blue_diamond:   Loot replacement when lost due to game bugs    <a:CatJAM:857695381982150706> 
-:large_blue_diamond:   Regular **events** like car-races or riddles
+__**FictionBot**__
+Shop, votings and many more features fully automated. Full Discord integration (like participating in ingame-chat trough Discord and more): 
+
+:warning:   __**Not**__ **violating the original concept of the game** -> Shop only available in the specified Tradingzone (just like a NPC). No additional Bank account: You pay with your Famepoints or the ingame money!
+
+:warning:   __**No**__ **"Pay-to-Win"** -> BotShop does __not__ offer weapons or anything related to combat! 
+
+
+__**Performance**__
+**Hosted @ Maximum Performance**, with on the fly ability to increase ressources for **lag-free gaming**. Good Ping is guaranteed even outside europe!
+
+
+__**Other Features**__
+:large_blue_diamond:   Tiny **Starterkit**     :dance2:
+:large_blue_diamond:   **Increased Loot** (x4)
+:large_blue_diamond:   PVE-Looting-Zones for newcomers     
+:large_blue_diamond:   **Many puppets** with slightly lower damage  :PartyTime: 
+:large_blue_diamond:   Loot replacement when lost due to game bugs    
+:large_blue_diamond:   Regular **events** like car-races or riddles         :CatJAM: 
 :large_blue_diamond:   **No Building Restrictions:** Build wherever you want
-:large_blue_diamond:   Only a few rules (like DBAAS aka. Don’t Be An Asshole)   <a:wink:857694561174159380>
-:large_blue_diamond:   **Votings** in Discord for server adjustments and more
-:large_blue_diamond:   Ingame **Tradingzone** including **shop** with buyable items
+:large_blue_diamond:   Only a few rules (like DBAA aka. _"Don’t Be An Asshole"_)   
+:large_blue_diamond:   **Votings** in Discord for server adjustments and more   :wink~1:
+:large_blue_diamond:   Very strict **no-admin-abuse** system with notifications
 :large_blue_diamond:   Enough cars, as well as a marketplace to trade money for cars
 :large_blue_diamond:   Discord **Kill-Feed**, as well as Chat and Admin-Commands log
-:large_blue_diamond:   Very strong anti-admin-abuse system with autokick and notification
-:large_blue_diamond:   **Active Admins**, which want to take care of every concern, no matter how small  <a:Rainbow_Corgi:857694561047281675>
+:large_blue_diamond:   Ingame **Tradingzone** including **BotShop** to trade with other players
+:large_blue_diamond:   **Active Admins and Mods**, which will take care of every concern, no matter how small  
 
 
+:Rainbow_Corgi: And last but not least, a **very active and supportive Community!** No toxic people, and no pointless activities or killings. We want to play the game like it's meant to be! (as similar as possible to _The Walking Dead_, with Sanctions and trading agreements between squads)
 
-Looking forward to meet you on our Server :slight_smile: we've got many squads still looking for members.
 
-We are also still looking for supporters in all fields <a:dogeHi:858231102695276566> Through our ingame-bot we also have the possibility to offer moderators extended rights so that they can help players better (like executing some commands for sales and more).
+Looking forward to welcome you on our Server :slight_smile: There are many squads still looking for members!
 
 Discord:    ** https://discord.gg/pZtw7NPdrZ **
 
