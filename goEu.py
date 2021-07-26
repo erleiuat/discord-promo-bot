@@ -26,33 +26,9 @@ password = "Tr5A@wPFtv"
 chInfo = {
     'eu': {
         'name': '#EU',
-        'channel': '486268880575266816',
+        'channel': '869134193748234291',
         'content': 'dcSpam_default.txt',
         'image': True
-    },
-    'us-east': {
-        'name': '#US-EAST',
-        'channel': '486268909113311242',
-        'content': 'dcSpam_default2.txt',
-        'image': False
-    },
-    'us-west': {
-        'name': '#US-WEST',
-        'channel': '486268938137632768',
-        'content': 'dcSpam_default2.txt',
-        'image': False
-    },
-    'russia': {
-        'name': '#RUSSIA',
-        'channel': '486269045298167830',
-        'content': 'dcSpam_default.txt',
-        'image': True
-    },
-    'asia': {
-        'name': '#ASIA',
-        'channel': '486268997633966090',
-        'content': 'dcSpam_asia.txt',
-        'image': False
     },
     'update': {
         'name': '#promo-bot-work',
@@ -124,7 +100,7 @@ def sendMessage(ch, token, content):
     print('\n[MSGS] -> SENDING MESSAGE TO "'+ch['name']+'"')
 
     if(ch['image']):
-        files = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
+        files = [('file', ('logo_resize.gif', open('logo_resize.gif', 'rb'), 'image/gif'))]
     else:
         files = None
 

@@ -148,7 +148,7 @@ def sendMessage(ch, token, content):
     print('\n[MSGS] -> SENDING MESSAGE TO "'+ch['name']+'"')
 
     if(ch['image']):
-        files = [('file', ('DisiLogo.png', open('DisiLogo.png', 'rb'), 'image/png'))]
+        files = [('file', ('logo_resize.gif', open('logo_resize.gif', 'rb'), 'image/gif'))]
     else:
         files = None
 
