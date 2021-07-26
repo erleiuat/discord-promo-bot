@@ -1,4 +1,4 @@
-#pm2 start goEU.py --name fiction-promo-eu --interpreter python3
+#pm2 start goEu.py --name fiction-promo-eu --interpreter python3
 
 
 
