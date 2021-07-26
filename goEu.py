@@ -26,7 +26,7 @@ password = "Tr5A@wPFtv"
 chInfo = {
     'eu': {
         'name': '#EU',
-        'channel': '869134193748234291',
+        'channel': '486268880575266816',
         'content': 'dcSpam_default.txt',
         'image': True
     },
