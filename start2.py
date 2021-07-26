@@ -18,6 +18,7 @@ password = "Tr5A@wPFtv"
 #testing	869134193748234291
 
 
+
 chInfo = {
     'eu': {
         'name': '#EU',
@@ -54,31 +55,6 @@ chInfo = {
         'channel': '857320680336392223',
         'content': None,
         'image': False
-    }
-}
-
-
-
-postTimes = {
-    'eu': {
-        '08:45': 'dc1@scumfiction.com', # 08:45 - 08:00
-        '15:05': 'dc1@scumfiction.com', # 15:05 - 15:20
-        '21:25': 'dc1@scumfiction.com'  # 21:25 - 21:40
-    },
-    'russia': {
-        '07:45': 'dc1@scumfiction.com', # 07:45 - 07:00
-        '14:05': 'dc1@scumfiction.com', # 14:05 - 14:20
-        '20:25': 'dc1@scumfiction.com'  # 20:25 - 20:40
-    },
-    'asia': {
-        #'05:15': 'dc10@scumfiction.com'
-    },
-    'us-east': {
-        #'02:00': 'dc8@scumfiction.com'
-    },
-    'us-west': {
-        #'00:00': 'dc9@scumfiction.com',
-        #'07:00': 'dc8@scumfiction.com'
     }
 }
 
@@ -184,41 +160,32 @@ def randomSleep():
 
 
 
-def doIt(mail, ch):
+def doIt(mail, ch, token):
     print('\n[MSGS] -> SENDING MESSAGES WITH "'+mail+'" TO "'+ch['name']+'"\n')
-    randomSleep()
-    token = sendLogin(mail)
+    
     sendMessage(chInfo['update'], token, 'I am going to do my work now in **' + ch['name'] + '**')
-    time.sleep(2)
+    time.sleep(1)
     success = sendMessage(ch, token, open(ch['content'], 'r', newline='\r\n').read())
-    time.sleep(2)
+    time.sleep(1)
     if(success):
         sendMessage(chInfo['update'], token, 'I am done.')
     else:
         sendMessage(chInfo['update'], token, 'I am done but it was **unsuccessful**.')
-    sendLogout(token)
-    time.sleep(2)
+    
+    time.sleep(1)
     print('\n[MSGS] -> MESSAGES SENT\n')
+
+def longSleep(total = 6 * 60 * 60 + 120):
+    while(total > 0):
+        print('[SLEEP] -> Remaining: ' + str(round(total / 60)) + ' min')
+        total = total - 10
+        time.sleep(10)
 
 
 while True:
-    time.sleep(5)
-
-    now = datetime.now()
-    dt_string = now.strftime("%H:%M")
-    print('[CHECKING] -> ' + now.strftime("%H:%M:%S"))
-
-    if(dt_string in postTimes['eu'].keys()):
-        doIt(postTimes['eu'][dt_string], chInfo['eu'])
-
-    elif(dt_string in postTimes['us-east'].keys()):
-        doIt(postTimes['us-east'][dt_string], chInfo['us-east'])
-
-    elif(dt_string in postTimes['us-west'].keys()):
-        doIt(postTimes['us-west'][dt_string], chInfo['us-west'])
-
-    elif(dt_string in postTimes['russia'].keys()):
-        doIt(postTimes['russia'][dt_string], chInfo['russia'])
-
-    elif(dt_string in postTimes['asia'].keys()):
-        doIt(postTimes['asia'][dt_string], chInfo['asia'])
+    email = 'dc1@scumfiction.com'
+    token = sendLogin(email)
+    doIt(email, chInfo['eu'], token)
+    doIt(email, chInfo['russia'], token)
+    sendLogout(token)
+    longSleep()
