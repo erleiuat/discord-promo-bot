@@ -1,3 +1,7 @@
+#pm2 start goRussia.py --name fiction-promo-russia --interpreter python3
+
+
+
 from datetime import datetime
 import requests
 import random

@@ -1,3 +1,7 @@
+#pm2 start start.py --name fiction-promo --interpreter python3
+
+
+
 from datetime import datetime
 import requests
 import random

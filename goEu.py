@@ -1,3 +1,7 @@
+#pm2 start goEU.py --name fiction-promo-eu --interpreter python3
+
+
+
 from datetime import datetime
 import requests
 import random
