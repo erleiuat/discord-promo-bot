@@ -31,7 +31,7 @@ __**Other Features**__
 :large_blue_diamond:   Loot replacement when lost due to game bugs    
 :large_blue_diamond:   Regular **events** like car-races or riddles         <a:CatJAM:857695381982150706> 
 :large_blue_diamond:   **No Building Restrictions:** Build wherever you want
-:large_blue_diamond:   Only a few rules (like DBAA aka. _"Don’t Be An Asshole"_)   
+:large_blue_diamond:   Only a few rules (like DBAA aka. _"Don't Be An Asshole"_)   
 :large_blue_diamond:   **Votings** in Discord for server adjustments and more   <a:wink:857694561174159380>
 :large_blue_diamond:   Very strict **no-admin-abuse** system with notifications
 :large_blue_diamond:   Enough cars, as well as a marketplace to trade money for cars
