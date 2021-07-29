@@ -6,7 +6,8 @@ Name:                   <a:sf_s_1:857688244279836675> <a:sf_c_1:8576882439277773
 
 IP:                                            **__ 50.3.80.210:7062 __**   
 
-BM:            ** https://www.battlemetrics.com/servers/scum/11570518 **
+BM:             ** https://www.battlemetrics.com/servers/scum/11570518 **
+Type:		   PVE+PVE (PVE-Looting-Zones, one bigger PVE-Zone for base building)
 
 
 _**"Feel the real, original flavor of the game without distractions or other interference. But still experience the thrilling gameplay of a infected world possessed by zombies."**_
