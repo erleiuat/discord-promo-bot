@@ -124,20 +124,13 @@ def sendMessage(ch, token, content):
               data['timestamp'] + '\n')
         return True
     else:
-        print(response.text)
+        print('[MSGS] -> Unsuccessful: ' + response.text)
+        respo = json.loads(response.text)
+        if (respo and respo['retry_after']):
+            retryAfter = round(respo['retry_after'])
+            if(retryAfter > 0):
+                longSleep(retryAfter)
         return False
-    
-
-
-
-def randomSleep():
-    randomSleep = random.randint(2, 15)
-    print('[SLEEP] -> WAITING FOR ' + str(randomSleep) + ' MINUTES BEFORE SENDING...')
-    for x in range(randomSleep):
-        print('[SLEEP] -> '+str(randomSleep-x)+' REMAINING...')
-        time.sleep(60)
-    print('[SLEEP] -> DONE: CONTINUING')
-
 
 
 def doIt(mail, ch, token):
@@ -167,4 +160,4 @@ while True:
     token = sendLogin(email)
     doIt(email, chInfo['eu'], token)
     sendLogout(token)
-    longSleep()
+    time.sleep(1)
