@@ -11,7 +11,7 @@ import json
 
 url_login = "https://discord.com/api/v9/auth/login"
 url_logout = "https://discord.com/api/v9/auth/logout"
-password = "Tr5A@wPFtv"
+password = "Tr6A@wPFtv"
 
 #eu			486268880575266816
 #russia		486269045298167830
