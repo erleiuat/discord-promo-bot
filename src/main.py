@@ -52,9 +52,9 @@ def run(bot, content, channel_name):
     bot.doSleep(data['cooldown'])
   
 
-def start(auth, content, log_channel, spam_channel):
+def start(auth, content, log_channel, spam_channel, randomSleep = 10):
   print()
   print(prefix + 'DISCORDBOT V1.0 - Starting DiscordBot')
-  bot = Bot(auth['email'], auth['password'], spam_channel, log_channel)
+  bot = Bot(auth['email'], auth['password'], spam_channel, log_channel, randomSleep)
   print('----------------------------------------------------')
   run(bot, content, spam_channel['name'])

@@ -1,6 +1,6 @@
-#pm2 start start.py eu --name promo-eu --interpreter python3
-#pm2 start start.py test --name promo-test --interpreter python3
-#pm2 start start.py russia --name promo-russia --interpreter python3
+#pm2 start start.py --name promo-eu --interpreter python3 -- eu
+#pm2 start start.py --name promo-test --interpreter python3 -- test
+#pm2 start start.py --name promo-russia --interpreter python3 -- russia
 
 import sys
 import argparse
@@ -18,4 +18,5 @@ start(
   content = Conf.getContent(),
   log_channel = Conf.getLog(),
   spam_channel = Conf.getChannel(args.channel),
+  randomSleep = Conf.getRandomSleep()
 )

@@ -9,6 +9,8 @@ class Config:
   spam_text = 'data/spam.txt'
   spam_image = 'data/logo.gif'
   
+  randomSleep = 10
+  
   channel_log = {
     'name': '#promo-bot-log',
     'id': '857320680336392223',
@@ -57,6 +59,10 @@ class Config:
     
   def getChannel(self, selection):
     return self.channels_spam[selection]
+  
+  
+  def getRandomSleep(self):
+    return self.randomSleep
   
   
 #eu			486268880575266816
