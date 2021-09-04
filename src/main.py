@@ -1,3 +1,5 @@
+import time
+import math
 from src.discordBot import Bot
 
 
@@ -42,7 +44,8 @@ def run(bot, content, channel_name):
       msg = logMsg(i, cn, 'WOOOOPS: Spam __NOT__ successfully sent!')
     msg = msg + '\n'
     time_m = round((data['cooldown'] / 60) * 100) / 100
-    msg = msg + logMsg(i, cn, 'I will try to logout now and try again in __' + str(time_m) + '__ minutes!')
+    timestamp = math.floor(time.time()) + (2 * 60 * 60) + math.floor(data['cooldown'])
+    msg = msg + logMsg(i, cn, 'I will try to logout now and try again in __' + str(time_m) + '__ minutes! (https://www.webcountdown.de/?c=' + str(timestamp) + ')')
     bot.sendLog(msg)
     
     print(prefix + '(RUN#' + str(i) + ') LOGOUT:')
