@@ -145,7 +145,7 @@ class Bot:
   
   
   def waitRandom(self, forWhat):
-    wait = random.randrange(self.randomRange) + 3
+    wait = random.randrange(self.randomRange) + 1
     print(self.prefix + 'Waiting ' + str(wait) + ' seconds to do "' + forWhat + '"')
     time.sleep(wait)
     print(self.prefix + 'Continuing')
