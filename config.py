@@ -9,7 +9,7 @@ class Config:
   spam_text = 'data/spam.txt'
   spam_image = 'data/logo.gif'
   
-  randomSleep = 10
+  randomSleep = 5
   
   channel_log = {
     'name': '#promo-bot-log',

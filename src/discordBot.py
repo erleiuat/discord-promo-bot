@@ -1,5 +1,6 @@
 import random
 import time
+import math
 
 
 from .api import API
@@ -144,7 +145,7 @@ class Bot:
   
   
   def waitRandom(self, forWhat):
-    wait = random.randrange(self.randomRange)
+    wait = random.randrange(self.randomRange) + 3
     print(self.prefix + 'Waiting ' + str(wait) + ' seconds to do "' + forWhat + '"')
     time.sleep(wait)
     print(self.prefix + 'Continuing')
@@ -154,7 +155,7 @@ class Bot:
     total = round(seconds)
     
     while(total >= 5):
-      time_m = round(total / 60)
+      time_m = math.floor(total / 60)
       time_s = total - (time_m * 60)
       print(self.prefix + 'Sleep remaining: ' + str(time_m) + 'm ' + str(round(time_s)) + 's')
       total = total - 5
