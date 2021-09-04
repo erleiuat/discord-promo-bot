@@ -162,3 +162,4 @@ class Bot:
       
     print(self.prefix + 'Continuing in 5 seconds...')
     time.sleep(5)
+    print('\n------\n\n')
