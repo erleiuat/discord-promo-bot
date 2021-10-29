@@ -3,8 +3,8 @@
 
 class Config:
   
-  email = 'dc1@scumfiction.com'
-  password = 'av(&Y78H2.tEa/y'
+  email = '...'
+  password = '...'
   
   spam_text = 'data/spam.txt'
   spam_image = 'data/logo.gif'
