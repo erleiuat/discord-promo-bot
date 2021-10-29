@@ -1,6 +1,3 @@
-# 'dc1@scumfiction.com'
-# 'av(&Y78H2.tEa/y'
-
 class Config:
   
   email = '...'
