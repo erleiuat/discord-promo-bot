@@ -1,17 +1,5 @@
 # discord-promo-bot
 
-## Good Times: (CEST)
+Was used to promote our Scum-Server on Scum-Official.
 
-### EU:
-
-- 02:30
-- 08:30
-- 14:30
-- 20:30
-
-### RUSSIA:
-
-- 01:30
-- 07:30
-- 13:30
-- 19:30
+*Will probably get you banned on Discord sooner or later if you do it too much*
